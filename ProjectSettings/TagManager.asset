@@ -50,9 +50,15 @@ TagManager:
   - name: Lines
     uniqueID: 2488042213
     locked: 0
+  - name: Platforms
+    uniqueID: 3368293205
+    locked: 0
   - name: Player
     uniqueID: 1849888663
     locked: 0
-  - name: Platforms
-    uniqueID: 3368293205
+  - name: Element
+    uniqueID: 3694443235
+    locked: 0
+  - name: Box
+    uniqueID: 124440933
     locked: 0

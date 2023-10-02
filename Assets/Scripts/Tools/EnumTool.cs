@@ -16,5 +16,12 @@ namespace Tools
             Bule,
             Orange,
         }
+        
+        public enum BoxColor
+        {
+            Blue,
+            Red,
+            Green
+        }
     }
 }

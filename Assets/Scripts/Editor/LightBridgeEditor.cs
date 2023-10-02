@@ -18,7 +18,7 @@ public class LightBridgeEditor : Editor
 
         // 显示默认 Inspector
         DrawDefaultInspector();
-
+        
         // 添加一个调整长度的滑块
         lightBridge.bridgeLength = EditorGUILayout.Slider("Bridge Length", lightBridge.bridgeLength, 1.0f, 30.0f);
         
