@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Tools;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
     [Header("基本设置")]
     [Header("移动速度")]
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float friction = 5f;
     public Transform groundCheck;
     public LayerMask groundLayer;
+    public GameObject holdingPoint;
     
     [Header("高级设置")]
     [Header("跳跃容忍")]
@@ -36,8 +38,9 @@ public class PlayerController : MonoBehaviour
     public float wallJumpForce = 5f;
     public float wallSlideSpeed = 2f;
     public float wallJumpDirection = 1f;
-    
-    
+
+
+    public Box currentHoldingBox;
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool canJump;
@@ -144,6 +147,25 @@ public class PlayerController : MonoBehaviour
         // }
     }
 
+    public void TryPickUp(Box box)
+    {
+        if (currentHoldingBox)
+        {
+            return;
+        }
+        currentHoldingBox = box;
+        box.PickUp(true);
+        box.transform.SetParent(holdingPoint.transform);
+        box.transform.localPosition = Vector3.zero;
+    }
+
+    public void TryRlease()
+    {
+        currentHoldingBox.transform.SetParent(null);
+        currentHoldingBox.PickUp(false);
+        currentHoldingBox = null;
+    }
+
     private void Flip()
     {
         // 切换人物朝向
@@ -155,4 +177,6 @@ public class PlayerController : MonoBehaviour
         // 使用插值来平滑翻转过程
         transform.rotation = Quaternion.Euler(newRotation);
     }
+
+    public bool isHolding => currentHoldingBox;
 }

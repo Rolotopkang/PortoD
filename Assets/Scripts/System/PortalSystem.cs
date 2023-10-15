@@ -32,6 +32,19 @@ public class PortalSystem : Singleton<PortalSystem>
         RefreshAllPortal();
     }
 
+    public void OnLaserAttach(EnumTool.PortalGunBulletType type, bool set)
+    {
+        if(!isConnectionBuilt()) return;
+        if (type == EnumTool.PortalGunBulletType.Bule)
+        {
+            CurrentOrangePortal.SetLaser(set);
+        }
+        else
+        {
+            CurrentBluePortal.SetLaser(set);
+        }
+    }
+
 
     public void TP(GameObject gameObject, EnumTool.PortalGunBulletType type)
     {
@@ -84,6 +97,8 @@ public class PortalSystem : Singleton<PortalSystem>
         {
             CurrentOrangePortal.RefreshSprite();
         }
+        OnLaserAttach(EnumTool.PortalGunBulletType.Bule,false);
+        OnLaserAttach(EnumTool.PortalGunBulletType.Orange,false);
     }
     
     public void ClearAllPortal()

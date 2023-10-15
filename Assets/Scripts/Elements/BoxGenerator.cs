@@ -10,11 +10,16 @@ public class BoxGenerator : ReceiverMono
     public Transform GeneeratePoint;
     public float ResetTime = 0.5f;
     public GameObject BoxPrefab;
+    public GameObject LaserBoxPrefab;
     [HideInInspector]
     public EnumTool.BoxColor BoxColor;
     public Sprite Blue;
     public Sprite Red;
     public Sprite Green;
+    public Sprite LaserBlue;
+    public Sprite LaserRed;
+    public Sprite LaserGreen;
+    
 
     
     private Box currentBox;
@@ -32,7 +37,7 @@ public class BoxGenerator : ReceiverMono
         BoxGeneratorSpriteRenderer.sprite = GetBoxSpriteByColor(BoxColor);
     }
 
-    public override void Receive(bool isTriggered)
+    public override void Receive(bool isTriggered ,TriggerMono triggerMono)
     {
         if (!CoolingDown && isTriggered)
         {
@@ -41,7 +46,18 @@ public class BoxGenerator : ReceiverMono
                 currentBox.DestroySelf();
             }
 
-            currentBox = Instantiate(BoxPrefab, GeneeratePoint.position, Quaternion.identity, transform)
+            GameObject tmp_Boxprefab;
+            if (BoxColor is EnumTool.BoxColor.LaserBlue or EnumTool.BoxColor.LaserRed or EnumTool.BoxColor.LaserGreen)
+            {
+                 tmp_Boxprefab =  LaserBoxPrefab;
+            }
+            else
+            {
+                tmp_Boxprefab =  BoxPrefab;
+            }
+            
+            
+            currentBox = Instantiate(tmp_Boxprefab, GeneeratePoint.position, Quaternion.identity, transform)
                 .GetComponent<Box>();
             currentBox.ChangeColor(BoxColor);
 
@@ -64,6 +80,12 @@ public class BoxGenerator : ReceiverMono
                 return Red;
             case EnumTool.BoxColor.Green:
                 return Green;
+            case EnumTool.BoxColor.LaserBlue:
+                return LaserBlue;
+            case EnumTool.BoxColor.LaserRed:
+                return LaserRed;
+            case EnumTool.BoxColor.LaserGreen:
+                return LaserGreen;
         }
 
         Debug.Log("找不到颜色！");

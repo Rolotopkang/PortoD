@@ -18,11 +18,11 @@ public class LightBridge : ReceiverMono
     
     private void Start()
     {
-        Receive(false);
+        Receive(false,null);
     }
     
     
-    public override void Receive(bool isTriggered)
+    public override void Receive(bool isTriggered,TriggerMono triggerMono)
     {
         GetComponent<SpriteRenderer>().sprite = isTriggered ? Open : Close;
         GetComponent<BoxCollider2D>().enabled = isTriggered;

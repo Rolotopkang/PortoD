@@ -24,9 +24,14 @@ public class PortalGun_Bullet : MonoBehaviour
     private Vector3 posRecord;
     private Vector2 normalVector2;
 
-    private void Update()
+    private void FixedUpdate()
     {
         BulletMovement();
+    }
+
+    private void Update()
+    {
+        
     }
 
     public void BulletMovement()
@@ -44,12 +49,17 @@ public class PortalGun_Bullet : MonoBehaviour
         {
             // ContactFilter2D contact = new ContactFilter2D();
             RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y),
-                Vector2.right, dis);
+                transform.right, dis);
             //从记录的位置向子弹飞行的方向发出射线
             if(hit)
             {
                 // Debug.Log("1");
                 // Debug.Log(hit.transform.name);
+                if (hit.transform .gameObject.tag.Equals("LightWall"))
+                {
+                    DestroySelf();
+                }
+                
                 if (hit.transform.gameObject.GetComponent<TilemapCollider2D>())
                 {
                     TilemapCollider2D tilemapCollider = hit.transform.gameObject.GetComponent<TilemapCollider2D>();
@@ -59,6 +69,7 @@ public class PortalGun_Bullet : MonoBehaviour
                         {
                             DestroySelf();
                         }
+                        
                         if (hit.transform .gameObject.tag.Equals("PortalAbleGround"))
                         {
                             Vector3 hitPoint = hit.point;

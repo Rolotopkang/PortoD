@@ -27,7 +27,6 @@ public class DissolveController : MonoBehaviour
     public void DissolveHide()
     {
         fade -= Time.deltaTime* dissolveSpeed;
-        Debug.Log(fade);
         if (fade <= 0f)
         {
             fade = 0f;

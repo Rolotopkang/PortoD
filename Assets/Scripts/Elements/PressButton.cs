@@ -37,7 +37,7 @@ public class PressButton : TriggerMono
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && CanBePressed && !CoolingDown)
+        if (Input.GetKeyDown(KeyCode.E) && CanBePressed && !CoolingDown && !PlayerController.GetInstance().isHolding)
         {
             isTriggered = true;
             Trigger(true);
@@ -52,7 +52,12 @@ public class PressButton : TriggerMono
 
     public override void Trigger(bool isTriggered)
     {
-        LinkedGameObject.Receive(isTriggered);
+        if (!LinkedGameObject)
+        {
+            Debug.Log(this.name+"没有绑定接收器");
+            return;
+        }
+        LinkedGameObject.Receive(isTriggered, this);
         GetComponent<SpriteRenderer>().sprite = Pressed;
         CoolingDown = true;
         
@@ -70,7 +75,7 @@ public class PressButton : TriggerMono
         yield return new WaitForSeconds(ResetTime);
         CoolingDown = false;
         isTriggered = false;
-        LinkedGameObject.Receive(isTriggered);
+        LinkedGameObject.Receive(isTriggered, this);
         GetComponent<SpriteRenderer>().sprite = UnPressed;
  
     }

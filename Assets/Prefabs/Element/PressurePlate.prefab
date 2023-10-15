@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3667507456633685604}
   m_Layer: 3
   m_Name: PressurePlate
-  m_TagString: Untagged
+  m_TagString: LightWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

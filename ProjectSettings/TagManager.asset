@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - PortalAbleGround
   - Box
+  - LightWall
+  - LaserReceiver
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - IgnoreGround
   - Projectile
   - Box
-  - 
+  - Portal
   - 
   - 
   - 

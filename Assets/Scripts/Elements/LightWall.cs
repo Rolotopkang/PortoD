@@ -22,7 +22,7 @@ public class LightWall : ReceiverMono
         GetComponent<SpriteRenderer>().sprite = Close;
     }
 
-    public override void Receive(bool isTriggered)
+    public override void Receive(bool isTriggered ,TriggerMono triggerMono)
     {
         GetComponent<SpriteRenderer>().sprite = isTriggered ? Open : Close;
         GetComponent<BoxCollider2D>().enabled = !isTriggered;
@@ -59,6 +59,13 @@ public class LightWall : ReceiverMono
         if (other.gameObject.CompareTag("Player"))
         {
             PortalSystem.GetInstance().ClearAllPortal();
+            BoxSystem.GetInstance().ClearAllBox();
+        }
+
+        if (other.gameObject.CompareTag("Box"))
+        {
+            Box box = other.gameObject.GetComponent<Box>();
+            box.DestroySelf();
         }
     }
 
@@ -67,6 +74,7 @@ public class LightWall : ReceiverMono
         if (other.gameObject.CompareTag("Player"))
         {
             PortalSystem.GetInstance().ClearAllPortal();
+            BoxSystem.GetInstance().ClearAllBox();
         }
     }
 }

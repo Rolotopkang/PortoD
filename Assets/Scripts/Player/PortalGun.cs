@@ -15,7 +15,10 @@ public class PortalGun : MonoBehaviour
     private float useTimer;
     private void Update()
     {
-        KeyDown();
+        if (!PlayerController.GetInstance().isHolding)
+        {
+            KeyDown();
+        }
     }
     
     private void KeyDown()

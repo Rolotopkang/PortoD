@@ -59,7 +59,7 @@ public class PressurePlate : TriggerMono
     {
         if (LinkedGameObject)
         {
-            LinkedGameObject.Receive(isTriggered);
+            LinkedGameObject.Receive(isTriggered, this);
         }
         else
         {

@@ -21,7 +21,10 @@ namespace Tools
         {
             Blue,
             Red,
-            Green
+            Green,
+            LaserBlue,
+            LaserRed,
+            LaserGreen
         }
     }
 }

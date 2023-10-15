@@ -284,7 +284,7 @@ MonoBehaviour:
   PortalGunBulletType: 1
   PortalPrefab: {fileID: 3261385408485090910, guid: 516b8f6866df684479d0aca5783b4c30, type: 3}
   TrailRenderer: {fileID: 6943056977079021731}
-  sp: 20
+  sp: 50
   dis: 0
 --- !u!50 &150942708240228290
 Rigidbody2D:
@@ -312,7 +312,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &3043614816573101446
 MonoBehaviour:
   m_ObjectHideFlags: 0
