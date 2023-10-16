@@ -464,7 +464,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
   m_Mass: 0.4064063
-  m_LinearDrag: 0
+  m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -507,6 +507,9 @@ MonoBehaviour:
   Blue: {fileID: 835401917, guid: 6617bd6622cb1f84b8da02e41d82b7bc, type: 3}
   Red: {fileID: -2021563511, guid: 6617bd6622cb1f84b8da02e41d82b7bc, type: 3}
   Green: {fileID: 498070211, guid: 6617bd6622cb1f84b8da02e41d82b7bc, type: 3}
+  LaserBlue: {fileID: 0}
+  LaserRed: {fileID: 0}
+  LaserGreen: {fileID: 0}
   CanbePick: 0
   bePicked: 0
   collision: {fileID: 7146257848517224197}

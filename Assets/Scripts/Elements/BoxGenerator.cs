@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class BoxGenerator : ReceiverMono
 {
+    public bool isAUTO = false;
     public SpriteRenderer BoxGeneratorSpriteRenderer;
     public SpriteRenderer root;
     public Transform GeneeratePoint;
@@ -32,6 +33,28 @@ public class BoxGenerator : ReceiverMono
         ChangeColor();
     }
 
+    private void Update()
+    {
+        if (isAUTO)
+        {
+            if (currentBox == null)
+            {
+                GameObject tmp_Boxprefab;
+                if (BoxColor is EnumTool.BoxColor.LaserBlue or EnumTool.BoxColor.LaserRed or EnumTool.BoxColor.LaserGreen)
+                {
+                    tmp_Boxprefab =  LaserBoxPrefab;
+                }
+                else
+                {
+                    tmp_Boxprefab =  BoxPrefab;
+                }
+                currentBox = Instantiate(tmp_Boxprefab, GeneeratePoint.position, Quaternion.identity, transform)
+                                .GetComponent<Box>();
+                            currentBox.ChangeColor(BoxColor);
+            }
+        }
+    }
+
     public void ChangeColor()
     {
         BoxGeneratorSpriteRenderer.sprite = GetBoxSpriteByColor(BoxColor);
@@ -39,6 +62,15 @@ public class BoxGenerator : ReceiverMono
 
     public override void Receive(bool isTriggered ,TriggerMono triggerMono)
     {
+        if (isAUTO)
+        {
+            if (currentBox && isTriggered)
+            {
+                currentBox.DestroySelf();
+            }
+            return;
+        }
+        
         if (!CoolingDown && isTriggered)
         {
             if (currentBox)
