@@ -61,6 +61,7 @@ public class Portal : MonoBehaviour, ConvertLaser
     public void RefreshSprite()
     {
         GetComponent<SpriteRenderer>().sprite = PortalSystem.GetInstance().isConnectionBuilt()? ConnectedPortal : UnconnectedPortal;
+        transform.GetChild(1).gameObject.SetActive(PortalSystem.GetInstance().isConnectionBuilt());
         _tilemap.SetColliderType(_baseTile, PortalSystem.GetInstance().isConnectionBuilt()? Tile.ColliderType.None : Tile.ColliderType.Grid);
     }
     public void DestroySelf()

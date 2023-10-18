@@ -166,6 +166,11 @@ public class PlayerController : Singleton<PlayerController>
         currentHoldingBox = null;
     }
 
+    public void GetPortalGun()
+    {
+        transform.GetChild(1).gameObject.SetActive(true);
+    }
+
     private void Flip()
     {
         // 切换人物朝向

@@ -35,7 +35,9 @@ public class SceneTransitionSystem : Singleton<SceneTransitionSystem>
 
         IsChanging = false;
         
-        if (isDebug) { return; }
+        if (isDebug)
+        {
+            isDebug = false; return; }
         PlayerController.GetInstance().transform.position = StartPoint.GetInstance().GetStartPoint;
     }
 
