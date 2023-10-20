@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7802210613616275040}
   - component: {fileID: 5896621025132539105}
   - component: {fileID: 9125746572878633458}
+  - component: {fileID: 4124738018180447887}
   m_Layer: 4
   m_Name: Water
   m_TagString: Untagged
@@ -49,7 +50,7 @@ BuoyancyEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_SurfaceLevel: 3.268301
+  m_SurfaceLevel: 2.8514118
   m_Density: 2
   m_LinearDrag: 5
   m_AngularDrag: 5
@@ -99,7 +100,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 19.978394, y: 6.670002}
+  m_Size: {x: 10.945719, y: 5.8192077}
   m_EdgeRadius: 0
 --- !u!23 &7802210613616275040
 MeshRenderer:
@@ -163,7 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f8092d3bbd9544e9eded51ac39ec64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: {x: 19.978394, y: 6.670002}
+  _size: {x: 10.945719, y: 5.8192077}
   _meshMaskControlPoints:
   - anchorPointPosition: {x: -0.5, y: 0.5}
     firstHandlePosition: {x: -0.5, y: 0.25}
@@ -354,6 +355,18 @@ MonoBehaviour:
   buoyancyEffectorSurfaceLevel: 0.01
   buoyancyEffectorSurfaceLevelLocation: 0
   boxColliderTopEdgeLocation: 0
+--- !u!114 &4124738018180447887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850824726522013088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffabeeeb02f7a0446b9d80a211ed09e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1984730169342337766
 GameObject:
   m_ObjectHideFlags: 0
