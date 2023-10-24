@@ -29,7 +29,14 @@ public class BoxGenerator : ReceiverMono
 
     private void Start()
     {
-        root.color = Color.red;
+        if (isAUTO)
+        {
+            root.color = Color.green;
+        }
+        else
+        {
+            root.color = Color.red;
+        }
         ChangeColor();
     }
 

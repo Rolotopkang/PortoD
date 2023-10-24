@@ -18,7 +18,10 @@ public class WaterSystem : MonoBehaviour
 
         if (other.gameObject.CompareTag("Box"))
         {
-            other.gameObject.GetComponent<Box>().DestroySelf();
+            if (other.gameObject.GetComponent<Box>())
+            {
+                other.gameObject.GetComponent<Box>().DestroySelf();
+            }
         }
     }
 
