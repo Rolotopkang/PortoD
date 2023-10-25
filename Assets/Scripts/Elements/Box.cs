@@ -19,6 +19,8 @@ public class Box : MonoBehaviour, ConvertLaser
     public bool bePicked;
     public BoxCollider2D collision;
 
+
+    private bool isDestroying;
     protected DissolveController DissolveController;
 
 
@@ -67,6 +69,10 @@ public class Box : MonoBehaviour, ConvertLaser
 
     public void DestroySelf()
     {
+        if(isDestroying)
+            return;
+        
+        isDestroying = true;
         BoxSystem.GetInstance().UnRegister(DestroySelf);
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true;
