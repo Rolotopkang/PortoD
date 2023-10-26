@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9220330437613189208}
   - component: {fileID: 6988395546601276557}
+  - component: {fileID: 6665355244733269227}
   m_Layer: 0
   m_Name: SceneTransitionSystem
   m_TagString: Untagged
@@ -118,7 +119,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2238370549203839250}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -142,7 +143,19 @@ MonoBehaviour:
   Show: {fileID: 7400000, guid: 6cc0c6442b4d1084db4cf9df12910e14, type: 2}
   Hide: {fileID: 7400000, guid: 904dcb6171d2d024a8fd3e175ad93501, type: 2}
   IsChanging: 0
-  isDebug: 0
+  isDebug: 1
+--- !u!114 &6665355244733269227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238370549203839250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6557fe6d1418ea459abaa52fc0b4c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8014571427935955655
 GameObject:
   m_ObjectHideFlags: 0

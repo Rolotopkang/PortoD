@@ -64,8 +64,11 @@ public class LightWall : ReceiverMono
 
         if (other.gameObject.CompareTag("Box"))
         {
-            Box box = other.gameObject.GetComponent<Box>();
-            box.DestroySelf();
+            if (other.gameObject.GetComponent<Box>())
+            {
+                Box box = other.gameObject.GetComponent<Box>();
+                box.DestroySelf();
+            }
         }
     }
 

@@ -27945,6 +27945,14 @@ PrefabInstance:
       propertyPath: SceneNum
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1311934701395988209, guid: 84c83287b8d526449857f5a8a81976e8, type: 3}
+      propertyPath: CheckLock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1311934701395988209, guid: 84c83287b8d526449857f5a8a81976e8, type: 3}
+      propertyPath: UnlockLevel
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2083608187776493243, guid: 84c83287b8d526449857f5a8a81976e8, type: 3}
       propertyPath: m_Name
       value: "\u7EC8\u70B9"
@@ -29125,9 +29133,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransitionSystem
       objectReference: {fileID: 0}
-    - target: {fileID: 6988395546601276557, guid: 09eefbf3645df5e4990224aaba24bc93, type: 3}
-      propertyPath: isDebug
-      value: 1
+    - target: {fileID: 6665355244733269227, guid: 09eefbf3645df5e4990224aaba24bc93, type: 3}
+      propertyPath: ifReset
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9220330437613189208, guid: 09eefbf3645df5e4990224aaba24bc93, type: 3}
       propertyPath: m_LocalPosition.x
