@@ -74,6 +74,14 @@ public class Box : MonoBehaviour, ConvertLaser
         
         isDestroying = true;
         BoxSystem.GetInstance().UnRegister(DestroySelf);
+        if (!GetComponent<BoxCollider2D>())
+        {
+            return;
+        }
+        if (!GetComponent<Rigidbody2D>())
+        {
+            return;
+        }
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity *= 0.05f;
