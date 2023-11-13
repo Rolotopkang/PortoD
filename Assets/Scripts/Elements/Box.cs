@@ -31,8 +31,14 @@ public class Box : MonoBehaviour, ConvertLaser
             BoxSystem.GetInstance().Register(DestroySelf);
         }
     }
-    
-    
+
+    private void OnDisable()
+    {
+        if (BoxSystem.IsInitialized)
+        {
+            BoxSystem.GetInstance().UnRegister(DestroySelf);
+        }
+    }
 
     protected virtual void Start()
     {
@@ -73,7 +79,6 @@ public class Box : MonoBehaviour, ConvertLaser
             return;
         
         isDestroying = true;
-        BoxSystem.GetInstance().UnRegister(DestroySelf);
         if (!GetComponent<BoxCollider2D>())
         {
             return;

@@ -47,6 +47,7 @@ public class SceneTransitionSystem : Singleton<SceneTransitionSystem>
         Animation.clip = Hide;
         Animation.Play();
         IsChanging = true;
+        CheckPointSystem.GetInstance().ResetCheckPoints();
         StartCoroutine(CS(SceneNum));
     }
 
